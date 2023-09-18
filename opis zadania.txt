@@ -1,0 +1,20 @@
+Sprawdźmy ile razy oraz jaką kwotę musimy "zinwestować" żeby w końcu trafić szóstkę!
+Dla ciekawskich... zakładając, że losowania są trzy razy w tygodniu sprawdź czy trafisz szóstkę za swojego życia.
+
+Zakładamy że każdy zakład kosztuje 3zł
+wysyłamy jeden zakład na tydzień
+
+-----------------------------------------------------------------------------------------------------------------
+
+Treść zadania:
+
+-Na początek określ "Twoje liczby", musi to być 6 liczb od 1 do 49.
+-Podczas każdego losowania wybieraj 6 liczb i porównuj je ze swoimi liczbami.
+=Losuj tak dłógo dopóki Twoje liczby nie będą identyczne z wylosowanymi liczbami.
+=Na ekranie wyświetl ilość losowań oraz kwotę jaka zosgtała wydana na zakłady.
+
+Pamiętaj o:
+
+=Testach
+-pylincie
+-upewnij się że testy przechodzą za każdym razem i nie są losowe
