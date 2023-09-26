@@ -1,7 +1,6 @@
 import random
 
 numbers_pull = range(1, 50)
-my_types = {2, 4, 34, 38, 41, 46}
 game_time = 3 * 4 * 12
 
 
@@ -9,11 +8,22 @@ def draw():
     return set(random.sample(numbers_pull, k=6))
 
 
+def lucky_numbers():
+    numbers = set()
+    n = 6
+    for i in range(0, n):
+        number = int(input())
+        numbers.add(number)
+    return numbers
+
+
 if __name__ == '__main__':
     draw_numbers = {}
     counter = 0
 
-    while my_types != draw_numbers:
+    player_numbers = lucky_numbers()
+
+    while player_numbers != draw_numbers:
         draw_numbers = draw()
         counter += 1
 
