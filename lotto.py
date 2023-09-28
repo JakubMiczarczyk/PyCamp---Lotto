@@ -1,38 +1,56 @@
+"""This Code count your possibility to win random games."""
 import random
 
 numbers_pull = range(1, 50)
-game_time = 2 * 4 * 12
-n = 6
+GAME_TIME = 2 * 4 * 12
+Z = 6
 
 
-def draw():
+def draw() -> set:
+    """
+    This Function drawing random diferent numbers from given numbers pull
+    :return: set of six random numbers
+    """
     return set(random.sample(numbers_pull, k=6))
 
 
-def lucky_numbers():
+def lucky_numbers() -> set:
+    """
+    Take numbers for user and check is it in predefine set
+    if it's not function ask for another number
+    :return: set of users numbers
+    """
     numbers = set()
-    # n = 6
+    n_len = int(6)
 
     num_count = 0
-    for i in range(0, n):
+    for number in range(0, n_len):
         number = int(input(f'Podaj swój szczęśliwy numer z zakersu:\n'
                            f'{numbers_pull}\n: '))
         if number not in numbers_pull:
-            print('Podano zły numer.\n'
+            print('\nPodano zły numer.\n'  # Zła liczba też się nalicza do n TODO
                   'Podaj numer z zakresu:\n'
-                  f'{numbers_pull}')  # Popraw wyświetlanie
+                  f'{numbers_pull}')        # popraw wyświetlanie
+        elif number in numbers:
+            print('\nPodany numer jest już w Twojej puli\n'
+                  f'Podaj inny numer z zakresu:\n'
+                  f'{numbers_pull}\n')
         else:
             numbers.add(number)
             num_count += 1
-            print(f'Podano {num_count}/{n} numerów')
+            print(f'Podano {num_count}/{n_len} numerów\n')
     return numbers
 
 
 def game():
+    """
+    Starts lucky_numbers func and check numbers of draws to win.
+    :return: number of draws, total cost of draws, time in years to win
+    """
     draw_numbers = {}
     counter = 0
 
-    print(f'Podaj {n} szczęsiwych numerów z zakresu {numbers_pull}')
+    print(f'Podaj {Z} szczęsiwych numerów z zakresu {numbers_pull}\n')
 
     player_numbers = lucky_numbers()
 
@@ -45,5 +63,5 @@ def game():
     total_cost_of_draws = 4 * counter
     print(f'Liczba losowań do trafienia "6": {counter:,}')
     print(f'Trafienie "6" przy założeniu,'
-          f'\nże gramy 3 razy w tygodniu zajełoby Ci {(counter / game_time):,.0} lat.'
+          f'\nże gramy 3 razy w tygodniu zajełoby Ci {(counter / GAME_TIME):,.0} lat.'
           f'\na poniesiony koszt zakładów {total_cost_of_draws:,} zł')
